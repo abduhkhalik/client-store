@@ -1,20 +1,11 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
+import { Urbanist } from "next/font/google";
 import "./globals.css";
 import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
-import ModalProvider from "@/providers/modal-providers";
+import ModalProvider from "@/providers/modal-provider";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
+const font = Urbanist({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Toko Online",
@@ -28,14 +19,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={font.className}>
         <ModalProvider />
         <Navbar />
         {children}
         <Footer />
-      </body>
+        </body>
     </html>
   );
 }

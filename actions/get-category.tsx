@@ -1,4 +1,4 @@
-import { Category } from "@/types"
+import { Category } from '../types';
 
 const URL = `${process.env.PUBLIC_API_URL}/categories`
 
